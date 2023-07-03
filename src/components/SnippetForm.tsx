@@ -2,6 +2,7 @@ import { useState } from "react";
 import { writeTextFile } from "@tauri-apps/api/fs";
 import { desktopDir, join } from "@tauri-apps/api/path";
 import { useSnippetStore } from "../store/snippetsStore";
+import { toast } from "react-hot-toast";
 
 function SnippetForm() {
   const [snippetName, setSnippetName] = useState("");
@@ -22,6 +23,12 @@ function SnippetForm() {
         await writeTextFile(filePath, "");
         setSnippetName("");
         addSnippetName(snippetName);
+
+        toast.success("Snippet saved", {
+          duration: 2000,
+          position: "bottom-right",
+          style: { background: "#202020", color: "#FFF" }
+        });
       }}
     >
       <input

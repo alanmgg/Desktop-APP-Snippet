@@ -1,3 +1,4 @@
+import { Toaster } from "react-hot-toast";
 import SnippetForm from "./components/SnippetForm";
 import SnippetList from "./components/SnippetList";
 import SnippetEditor from "./components/SnippetEditor";
@@ -13,6 +14,8 @@ export default function App() {
       <div className="col-span-9 bg-neutral-900 flex justify-center items-center">
         <SnippetEditor />
       </div>
+
+      <Toaster />
     </div>
   );
 }
