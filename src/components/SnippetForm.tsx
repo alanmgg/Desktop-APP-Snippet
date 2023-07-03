@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { writeTextFile } from "@tauri-apps/api/fs";
 import { desktopDir } from "@tauri-apps/api/path";
 
