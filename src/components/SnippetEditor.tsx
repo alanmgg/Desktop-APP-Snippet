@@ -12,7 +12,6 @@ function SnippetEditor() {
     if (!selectedSnippet) return;
 
     const saveText = setTimeout(async () => {
-      console.log("saving text");
       const desktopPath = await desktopDir();
       const filePath = await join(
         desktopPath,
