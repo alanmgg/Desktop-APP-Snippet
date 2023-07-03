@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { writeTextFile } from "@tauri-apps/api/fs";
 import { desktopDir } from "@tauri-apps/api/path";
+import { useSnippetStore } from "../store/snippetsStore";
 
 function SnippetForm() {
   const [snippetName, setSnippetName] = useState("");
+
+  const addSnippetName = useSnippetStore((state) => state.addSnippetName);
 
   return (
     <form
@@ -14,10 +17,11 @@ function SnippetForm() {
 
         const desktopPath = await desktopDir();
         await writeTextFile(
-          `${desktopPath}/TauriFiles/${snippetName}.json`,
+          `${desktopPath}/TauriFiles/${snippetName}.js`,
           "{}"
         );
         setSnippetName("");
+        addSnippetName(snippetName);
       }}
     >
       <input
