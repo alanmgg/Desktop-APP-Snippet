@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { writeTextFile } from "@tauri-apps/api/fs";
-import { desktopDir } from "@tauri-apps/api/path";
+import { desktopDir, join } from "@tauri-apps/api/path";
 import { useSnippetStore } from "../store/snippetsStore";
 
 function SnippetForm() {
@@ -13,13 +13,13 @@ function SnippetForm() {
       onSubmit={async (e) => {
         e.preventDefault();
 
-        // if (snippetName)
-
         const desktopPath = await desktopDir();
-        await writeTextFile(
-          `${desktopPath}/TauriFiles/${snippetName}.js`,
-          "{}"
+        const filePath = await join(
+          desktopPath,
+          "TauriFiles",
+          `${snippetName}.js`
         );
+        await writeTextFile(filePath, "");
         setSnippetName("");
         addSnippetName(snippetName);
       }}
