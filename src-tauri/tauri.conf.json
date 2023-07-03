@@ -16,6 +16,21 @@
       "shell": {
         "all": false,
         "open": true
+      },
+      "dialog": {
+        "confirm": true,
+        "message": true,
+        "save": true
+      },
+      "path": {
+        "all": true
+      },
+      "fs": {
+        "readFile": true,
+        "removeFile": true,
+        "writeFile": true,
+        "readDir": true,
+        "scope": ["$DOCUMENT/*", "$DESKTOP/**/**"]
       }
     },
     "bundle": {
@@ -37,9 +52,9 @@
       {
         "fullscreen": false,
         "resizable": true,
-        "title": "tauri-react-app",
-        "width": 800,
-        "height": 600
+        "title": "Tauri Snippets App",
+        "width": 1100,
+        "height": 700
       }
     ]
   }

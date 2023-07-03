@@ -10,7 +10,7 @@ export default function App() {
         <SnippetList />
       </div>
 
-      <div className="col-span-9 bg-neutral-950 flex justify-center items-center">
+      <div className="col-span-9 bg-neutral-900 flex justify-center items-center">
         <SnippetEditor />
       </div>
     </div>
